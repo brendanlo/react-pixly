@@ -6,18 +6,18 @@ function NavBar() {
         <nav className="Navigation navbar pixly">
             <div>
                 <Link to="/">
-                    Pixly    
+                    Pixly
                 </Link>
                 <NavLink to="/photos">
-                    Browse Photos    
+                    Browse Photos
                 </NavLink>
                 <NavLink to="/photos/add">
-                    Add Photos    
+                    Add Photos
                 </NavLink>
                 <NavLink to="/photos/search">
-                    Search Photos    
+                    Search Photos
                 </NavLink>
-            </div>    
+            </div>
         </nav>
     );
 }

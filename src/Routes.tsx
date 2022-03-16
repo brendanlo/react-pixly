@@ -7,16 +7,16 @@ import SearchForm from './SearchForm';
 function Routes() {
     return (
         <Switch>
-            <Route exact to="/">
+            <Route exact path="/">
                 <HomePage />
             </Route>
-            <Route exact to="/photos">
+            <Route exact path="/photos">
                 <BrowsePage />
             </Route>
-            <Route exact to="/photos/add">
+            <Route exact path="/photos/add">
                 <AddForm />
             </Route>
-            <Route exact to="/photos/search">
+            <Route exact path="/photos/search">
                 <SearchForm />
             </Route>
             <Redirect to="/" />
