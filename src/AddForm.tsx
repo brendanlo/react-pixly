@@ -3,7 +3,7 @@ import { useState } from "react";
 function AddForm({ addPhoto }) {
     const formDefaults = {
         title: "",
-        file: null,
+        file: "",
         description: "",
         tags: ""
     };
@@ -59,7 +59,9 @@ function AddForm({ addPhoto }) {
                 />
 
             </div>
-
+            <button type="submit" className="btn btn-lg btn-primary">
+                Submit
+            </button>
         </form>)
 }
 
