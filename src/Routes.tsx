@@ -4,7 +4,7 @@ import BrowsePage from './BrowsePage';
 import AddForm from './AddForm';
 import SearchForm from './SearchForm';
 
-function Routes() {
+function Routes({ getPhotos, addPhoto }) {
     return (
         <Switch>
             <Route exact path="/">
@@ -14,7 +14,7 @@ function Routes() {
                 <BrowsePage />
             </Route>
             <Route exact path="/photos/add">
-                <AddForm />
+                <AddForm addPhoto={addPhoto} />
             </Route>
             <Route exact path="/photos/search">
                 <SearchForm />

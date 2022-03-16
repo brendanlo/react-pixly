@@ -1,16 +1,19 @@
 import { useState } from "react";
 
-function AddForm({ }) {
-    const [formData, setFormData] = useState({
+function AddForm({ addPhoto }) {
+    const formDefaults = {
         title: "",
         file: null,
         description: "",
         tags: ""
-    });
+    };
+
+    const [formData, setFormData] = useState(formDefaults);
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        //function from app
+        addPhoto(formData);
+        setFormData(formDefaults);
     }
 
     function handleChange(evt) {
