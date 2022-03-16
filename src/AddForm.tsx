@@ -26,6 +26,7 @@ function AddForm({ addPhoto }) {
         setInputData(formDefaults);
     }
 
+    // evt.target.files (an array)
     function handleChange(evt) {
         const { name, value } = evt.target;
         setInputData(data => ({ ...data, [name]: value }));

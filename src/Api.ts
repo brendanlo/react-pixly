@@ -17,7 +17,13 @@ class PixlyApi {
         //     description: description,
         //     tags: tags
         // };
-        let res = await axios.post(`${BASE_URL}/api/photos`, newFormData);
+
+
+        let res = await axios.post(`${BASE_URL}/api/photos`, newFormData,
+            {
+                headers: newFormData.getHeaders()
+            }
+        );
 
         return res.data;
     }
