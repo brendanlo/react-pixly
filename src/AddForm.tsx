@@ -14,12 +14,13 @@ function AddForm({ addPhoto }) {
         evt.preventDefault();
 
         // creating and populating a FormData object
-        const newFormData = new FormData();
+        let newFormData = new FormData();
         newFormData.append('title', inputData.title);
         newFormData.append('file', inputData.file);
         newFormData.append('description', inputData.description);
         newFormData.append('tags', inputData.tags);
 
+        console.log("inputdata file is: ", inputData.file);
         console.log("newFormData: ", newFormData);
         addPhoto(newFormData);
         setInputData(formDefaults);
