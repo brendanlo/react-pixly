@@ -21,7 +21,7 @@ class PixlyApi {
 
         let res = await axios.post(`${BASE_URL}/api/photos`, newFormData,
             {
-                headers: newFormData.getHeaders()
+                headers: {'Content-Type': 'multipart/form-data'}
             }
         );
 

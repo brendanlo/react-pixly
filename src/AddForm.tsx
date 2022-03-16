@@ -1,36 +1,45 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function AddForm({ addPhoto }) {
     const formDefaults = {
         title: "",
-        file: "",
         description: "",
         tags: ""
     };
 
     const [inputData, setInputData] = useState(formDefaults);
+    const [selectedFile, setSelectedFile] = useState(null);
 
+    const fileInput = React.createRef();
     function handleSubmit(evt) {
         evt.preventDefault();
 
         // creating and populating a FormData object
         let newFormData = new FormData();
         newFormData.append('title', inputData.title);
-        newFormData.append('file', inputData.file);
+        newFormData.append('file', selectedFile);
         newFormData.append('description', inputData.description);
         newFormData.append('tags', inputData.tags);
 
-        console.log("inputdata file is: ", inputData.file);
+        console.log("inputdata file is: ", fileInput);
         console.log("newFormData: ", newFormData);
         addPhoto(newFormData);
         setInputData(formDefaults);
     }
 
-    // evt.target.files (an array)
     function handleChange(evt) {
         const { name, value } = evt.target;
         setInputData(data => ({ ...data, [name]: value }));
     }
+
+    // function handleFileChange(evt){
+    //     const name = evt.target.name;
+    //     const value = evt.target.files[0];
+
+    //     setInputData(data => ({ ...data, [name]: value}));
+
+    // }
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -49,8 +58,7 @@ function AddForm({ addPhoto }) {
                     id="file"
                     name="file"
                     accept="image/png, image/jpeg, image/jpg"
-                    value={inputData.file}
-                    onChange={handleChange}
+                    onChange={(e) => setSelectedFile(e.target.files[0])}
                 />
                 <label htmlFor="description">Description</label>
                 <input
