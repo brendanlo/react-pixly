@@ -10,14 +10,14 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:5001';
 class PixlyApi {
 
     /** Adds a photo to the backend  */
-    static async addPhoto({ title, file, description, tags }) {
-        const data = {
-            title: title,
-            file: file,
-            description: description,
-            tags: tags
-        };
-        let res = await axios.post(`${BASE_URL}/api/photos`, data);
+    static async addPhoto(newFormData) {
+        // const data = {
+        //     title: title,
+        //     file: file,
+        //     description: description,
+        //     tags: tags
+        // };
+        let res = await axios.post(`${BASE_URL}/api/photos`, newFormData);
 
         return res.data;
     }

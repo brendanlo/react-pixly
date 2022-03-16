@@ -8,17 +8,26 @@ function AddForm({ addPhoto }) {
         tags: ""
     };
 
-    const [formData, setFormData] = useState(formDefaults);
+    const [inputData, setInputData] = useState(formDefaults);
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        addPhoto(formData);
-        setFormData(formDefaults);
+
+        // creating and populating a FormData object
+        const newFormData = new FormData();
+        newFormData.append('title', inputData.title);
+        newFormData.append('file', inputData.file);
+        newFormData.append('description', inputData.description);
+        newFormData.append('tags', inputData.tags);
+
+        console.log("newFormData: ", newFormData);
+        addPhoto(newFormData);
+        setInputData(formDefaults);
     }
 
     function handleChange(evt) {
         const { name, value } = evt.target;
-        setFormData(data => ({ ...data, [name]: value }));
+        setInputData(data => ({ ...data, [name]: value }));
     }
 
     return (
@@ -29,7 +38,7 @@ function AddForm({ addPhoto }) {
                     id="title"
                     name="title"
                     placeholder="Enter title for photo.."
-                    value={formData.title}
+                    value={inputData.title}
                     onChange={handleChange}
                 />
                 <label htmlFor="file">Upload</label>
@@ -38,7 +47,7 @@ function AddForm({ addPhoto }) {
                     id="file"
                     name="file"
                     accept="image/png, image/jpeg, image/jpg"
-                    value={formData.file}
+                    value={inputData.file}
                     onChange={handleChange}
                 />
                 <label htmlFor="description">Description</label>
@@ -46,7 +55,7 @@ function AddForm({ addPhoto }) {
                     id="description"
                     name="description"
                     placeholder="Write some descriptions if needed"
-                    value={formData.description}
+                    value={inputData.description}
                     onChange={handleChange}
                 />
                 <label htmlFor="tags">Tags</label>
@@ -54,7 +63,7 @@ function AddForm({ addPhoto }) {
                     id="tags"
                     name="tags"
                     placeholder="tag1,tag2,tag3,..."
-                    value={formData.tags}
+                    value={inputData.tags}
                     onChange={handleChange}
                 />
 
