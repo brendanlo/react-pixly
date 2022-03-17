@@ -32,14 +32,6 @@ function AddForm({ addPhoto }) {
         setInputData(data => ({ ...data, [name]: value }));
     }
 
-    // function handleFileChange(evt){
-    //     const name = evt.target.name;
-    //     const value = evt.target.files[0];
-
-    //     setInputData(data => ({ ...data, [name]: value}));
-
-    // }
-
 
     return (
         <form onSubmit={handleSubmit}>
