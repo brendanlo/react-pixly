@@ -6,7 +6,7 @@ function NavBar() {
         <nav className="Navigation navbar pixly">
             <div>
                 <Link to="/">
-                    Pixly
+                    Shot On
                 </Link>
                 <NavLink to="/photos">
                     Browse Photos
