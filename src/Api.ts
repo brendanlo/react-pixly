@@ -35,6 +35,17 @@ class PixlyApi {
     }
 
     /** TODO edit photo function */
+
+    /** searches for photos with make and model inputs */
+
+    static async searchPhotos(make, model) {
+        let res = await axios.get(
+            `${BASE_URL}/api/photos/search`,
+            { params: { make: make, model: model } });
+        return res.data;
+    }
+
+
 }
 
 export default PixlyApi;

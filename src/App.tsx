@@ -54,7 +54,8 @@ function App() {
                 <Routes
                     getPhotos={PixlyApi.getPhotos}
                     addPhoto={updatePhotoList}
-                    photoList={photoList} />
+                    photoList={photoList}
+                    searchPhotos={PixlyApi.searchPhotos} />
             </BrowserRouter>
         </div>
     );
