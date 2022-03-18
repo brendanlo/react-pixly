@@ -3,8 +3,8 @@ import PhotoList from "./PhotoList";
 
 function SearchForm({ searchPhotos }) {
     const formDefaults = {
-        make: "",
-        model: ""
+        deviceMake: "",
+        deviceModel: ""
     };
 
     const [inputSearch, setInputSearch] = useState(formDefaults);
@@ -12,7 +12,7 @@ function SearchForm({ searchPhotos }) {
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        const filteredPhotos = searchPhotos(inputSearch.make, inputSearch.model);
+        const filteredPhotos = searchPhotos(inputSearch.deviceMake, inputSearch.deviceModel);
         console.log("filteredPhotos (shoudl be a photolist: ", filteredPhotos);
 
         setPhotoList(filteredPhotos);
@@ -34,7 +34,7 @@ function SearchForm({ searchPhotos }) {
                     name="deviceMake"
                     type='text'
                     placeholder="Enter Make"
-                    value={inputSearch.make}
+                    value={inputSearch.deviceMake}
                     onChange={handleChange}
                 />
                 <label htmlFor="deviceModel">Camera Model</label>
@@ -43,7 +43,7 @@ function SearchForm({ searchPhotos }) {
                     name="deviceModel"
                     type='text'
                     placeholder="Enter Camera Model"
-                    value={inputSearch.model}
+                    value={inputSearch.deviceModel}
                     onChange={handleChange}
                 />
 

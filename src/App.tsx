@@ -47,6 +47,15 @@ function App() {
         setIsLoading(true);
     }
 
+    function searchPhotos(make, model) {
+        
+        return photoList.filter(photo => 
+            {   console.log("device_make is",photo.device_make);
+                console.log("Make is", make);
+                console.log("It matches??", photo.device_make.toLowerCase().includes(make.toLowerCase()));
+                return photo.device_make.toLowerCase().includes(make.toLowerCase()) && photo.device_model.toLowerCase().includes(model.toLowerCase())})
+    }
+
     return (
         <div className="App">
             <BrowserRouter>
@@ -55,7 +64,7 @@ function App() {
                     getPhotos={PixlyApi.getPhotos}
                     addPhoto={updatePhotoList}
                     photoList={photoList}
-                    searchPhotos={PixlyApi.searchPhotos} />
+                    searchPhotos={searchPhotos} />
             </BrowserRouter>
         </div>
     );
