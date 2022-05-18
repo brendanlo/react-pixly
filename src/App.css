@@ -72,3 +72,9 @@ h1 {
 .HomePage, .BrowsePage, .AddForm {
     padding:20px;
 }
+
+.PhotoList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
