@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +36,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+    height:200px;
+    width:auto;
+}
+
+.navbar {
+    display:absolute;
+    /* top:0px; */
+    background-color: black;
+}
+
+a {
+    color:white;
+}
+
+h1 {
+    padding:40px 10px 0px 10px;
+}
+
+.navbar-brand {
+    float:left;
+}
+
+.navbar-right {
+    float:right;
+    position: absolute;
+    right:0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.HomePage, .BrowsePage, .AddForm {
+    padding:20px;
 }

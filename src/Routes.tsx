@@ -8,10 +8,10 @@ function Routes({ getPhotos, addPhoto, photoList, searchPhotos }) {
     return (
         <Switch>
             <Route exact path="/">
-                <HomePage photoList={photoList} />
+                <HomePage />
             </Route>
             <Route exact path="/photos">
-                <BrowsePage />
+                <BrowsePage photoList={photoList} />
             </Route>
             <Route exact path="/photos/add">
                 <AddForm addPhoto={addPhoto} />

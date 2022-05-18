@@ -1,14 +1,10 @@
-import PhotoList from "./PhotoList";
 
-function HomePage({ photoList }) {
+function HomePage() {
 
     return (
         <div>
-            <h1>Welcome to Shot On</h1>
-            <p> Any camera can take a great photo</p>
-            <div className="HomePage-photos">
-                <PhotoList photoList={photoList} />
-            </div>
+            <h1>Welcome to Pixly</h1>
+            <p>Any camera can take a great photo</p>
 
         </div>
 

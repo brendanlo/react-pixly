@@ -3,20 +3,23 @@ import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
     return (
-        <nav className="Navigation navbar pixly">
+        <nav className="nav Navigation navbar pixly">
             <div>
-                <Link to="/">
-                    Shot On
+                <Link className="nav-link navbar-brand" to="/">
+                    Pixly
                 </Link>
-                <NavLink to="/photos">
-                    Browse Photos
-                </NavLink>
-                <NavLink to="/photos/add">
-                    Add Photos
-                </NavLink>
-                <NavLink to="/photos/search">
-                    Search Photos
-                </NavLink>
+                <div className="navbar-right">
+                    <NavLink  className="nav-link" to="/photos">
+                        Browse Photos
+                    </NavLink>
+                    <NavLink  className="nav-link" to="/photos/add">
+                        Add Photos
+                    </NavLink>
+                    <NavLink  className="nav-link" to="/photos/search">
+                        Search Photos
+                    </NavLink>
+                </div>
+                
             </div>
         </nav>
     );

@@ -13,6 +13,8 @@ function App() {
     const [photoList, setPhotoList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    console.log("<App> photoList = ", photoList);
+
 
     useEffect(function loadUserInfo() {
         async function getAllPhotos() {
@@ -26,15 +28,12 @@ function App() {
                     `${BASE_URL}/photos/imageurl`,
                     { params: { key: photoObj.image_url } });
                 photoObj.image_url = responses.data;
-                console.log(photoObj.image_url);
             }
 
             setPhotoList(response.data.photos);
             setIsLoading(false);
         }
-
         getAllPhotos();
-
     }, [isLoading]);
 
     if (isLoading) {
@@ -43,17 +42,14 @@ function App() {
 
     function updatePhotoList(newFormData) {
         PixlyApi.addPhoto(newFormData);
-        setPhotoList(photoList => ({ ...photoList }));
+        // setPhotoList(photoList => ({ ...photoList }));
         setIsLoading(true);
     }
 
     function searchPhotos(make, model) {
-        
-        return photoList.filter(photo => 
-            {   console.log("device_make is",photo.device_make);
-                console.log("Make is", make);
-                console.log("It matches??", photo.device_make.toLowerCase().includes(make.toLowerCase()));
-                return photo.device_make.toLowerCase().includes(make.toLowerCase()) && photo.device_model.toLowerCase().includes(model.toLowerCase())})
+        return photoList.filter(photo => {
+            return photo.device_make.toLowerCase().includes(make.toLowerCase()) && photo.device_model.toLowerCase().includes(model.toLowerCase())
+        })
     }
 
     return (
